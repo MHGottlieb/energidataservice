@@ -33,7 +33,11 @@ energidataservice <- function(dataset="ProductionConsumptionSettlement",
   }
   dat <- dat$records
   try({dat$HourUTC <- as.POSIXct(dat$HourUTC, format="%Y-%m-%dT%H:%M:%S")}, silent=TRUE)
+  try({dat$Minutes5UTC <- as.POSIXct(dat$Minutes5UTC, format="%Y-%m-%dT%H:%M:%S")}, silent=TRUE)
+  try({dat$Minutes1UTC <- as.POSIXct(dat$Minutes1UTC, format="%Y-%m-%dT%H:%M:%S")}, silent=TRUE)
   try({dat$HourDK <- as.POSIXct(dat$HourDK, format="%Y-%m-%dT%H:%M:%S")}, silent=TRUE)
+  try({dat$Minutes5DK <- as.POSIXct(dat$Minutes5DK, format="%Y-%m-%dT%H:%M:%S")}, silent=TRUE)
+  try({dat$Minutes1DK <- as.POSIXct(dat$Minutes1DK, format="%Y-%m-%dT%H:%M:%S")}, silent=TRUE)
   if(is.null(nrow(dat))){
     cat("Something went wrong. Check input.")
     return()
